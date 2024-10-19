@@ -7,8 +7,8 @@
         </v-slide-x-transition>
       </v-col>
     </v-row>
-    <v-row cols="12">
-      <v-col cols="12" sm="12" md="10" lg="10" xl="10">
+    <v-row>
+      <v-col cols="12">
         <v-radio-group v-model="trendingType" row @change="resetPage">
           <v-radio
             v-for="(radio, index) in trendingTypeItems"

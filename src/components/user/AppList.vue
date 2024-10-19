@@ -34,7 +34,7 @@
           >
             <template v-if="item.media_type !== 'person'">
               <v-card-text>
-                <v-row col="12" class="justify-end">
+                <v-row class="justify-end">
                   <div class="d-flex flex-column align-center">
                     <v-icon large color="yellow darken-2" tag="div">
                       mdi-star

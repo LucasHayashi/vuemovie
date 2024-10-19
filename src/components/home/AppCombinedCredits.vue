@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row cols="12" justify="center">
+    <v-row justify="center">
       <v-slide-group show-arrows>
         <v-slide-item v-for="credit in combinedCredits" :key="credit.credit_id">
           <v-card

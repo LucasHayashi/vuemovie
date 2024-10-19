@@ -3,7 +3,7 @@
     <div v-if="loading" class="text-center"></div>
 
     <template v-if="loading">
-      <v-row cols="12" justify="center">
+      <v-row justify="center">
         <v-progress-circular
           :size="100"
           color="primary"
@@ -11,7 +11,7 @@
           class="center"
         ></v-progress-circular>
       </v-row>
-      <v-row cols="12" justify="center">
+      <v-row justify="center">
         <v-col cols="12">
           <h2>Autenticando...</h2>
         </v-col>
@@ -19,7 +19,7 @@
     </template>
 
     <template v-if="error.show">
-      <v-row cols="12" justify="center">
+      <v-row justify="center">
         <v-alert type="error"
           >{{ error.message }} Redirecionando para a tela de login em
           {{ redirectTime }} segundos</v-alert

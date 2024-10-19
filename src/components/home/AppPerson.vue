@@ -25,7 +25,7 @@
               <v-row class="fill-height ma-0" align="center" justify="center">
                 <v-progress-circular
                   indeterminate
-                  color="grey lighten-5"
+                  color="secondary"
                 ></v-progress-circular>
               </v-row>
             </template>
@@ -71,7 +71,7 @@
       </v-row>
     </div>
     <template v-if="error.show">
-      <v-row cols="12" justify="center">
+      <v-row justify="center">
         <v-alert type="error">{{ error.message }}</v-alert>
       </v-row>
     </template>

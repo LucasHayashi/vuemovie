@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row cols="12" justify="center" align="center">
+    <v-row justify="center" align="center">
       <v-slide-group show-arrows>
         <v-slide-item
           v-for="season in seasons"

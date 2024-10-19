@@ -2,19 +2,16 @@
   <v-app>
     <v-app-bar app fixed>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <router-link
-        :to="{ name: 'home' }"
-        class="d-flex align-center text-decoration-none"
-      >
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="@/assets/logo.png"
-          transition="scale-transition"
-          width="40"
-        />
-      </router-link>
+      <v-img
+        alt="Vuetify Logo"
+        class="shrink mr-2"
+        contain
+        src="@/assets/logo.png"
+        transition="scale-transition"
+        width="40"
+        @click="goHome"
+        style="cursor: pointer"
+      />
 
       <v-toolbar-title
         v-if="$vuetify.breakpoint.smAndUp"

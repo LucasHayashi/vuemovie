@@ -9,7 +9,7 @@
     </div>
 
     <div v-else-if="tv">
-      <v-row cols="12">
+      <v-row>
         <v-col cols="12" sm="12" md="4" lg="4" xl="4">
           <v-img
             :lazy-src="createAsset(tv.poster_path, 'w92')"
@@ -21,7 +21,7 @@
               <v-row class="fill-height ma-0" align="center" justify="center">
                 <v-progress-circular
                   indeterminate
-                  color="grey lighten-5"
+                  color="secondary"
                 ></v-progress-circular>
               </v-row>
             </template>
@@ -100,7 +100,7 @@
     </div>
 
     <template v-if="error.show">
-      <v-row cols="12" justify="center">
+      <v-row justify="center">
         <v-alert type="error">{{ error.message }}</v-alert>
       </v-row>
     </template>

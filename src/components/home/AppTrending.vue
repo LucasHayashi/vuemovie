@@ -8,48 +8,49 @@
       ></v-progress-circular>
     </div>
     <div v-else>
-      <v-row col="12">
+      <v-row>
         <v-col
-          xs="12"
-          sm="6"
+          cols="6"
+          sm="4"
           md="4"
           lg="3"
           xl="2"
           v-for="item in trendingItems"
           :key="item.id"
         >
-          <v-card height="100%" @click="navigate(item)" min-width="200">
+          <v-card height="100%" @click="navigate(item)">
             <v-img
-              min-height="400"
               width="100%"
               :src="createAsset(item.poster_path || item.profile_path, 'w342')"
               class="white--text align-start justify-end"
               :alt="item.title || item.name"
-              contain
             >
-              <template v-if="item.media_type !== 'person'">
-                <v-card-text>
-                  <v-row col="12" class="justify-end">
-                    <div class="d-flex flex-column align-center">
-                      <v-icon large color="yellow darken-2" tag="div">
-                        mdi-star
-                      </v-icon>
-                      <div class="font-weight-bold">
-                        {{ normalizedRating(item.vote_average) }}
-                      </div>
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="secondary"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+              <v-card-text>
+                <v-row justify="end">
+                  <div class="d-flex flex-column align-center">
+                    <v-icon small color="yellow darken-2" tag="div">
+                      mdi-star
+                    </v-icon>
+                    <div class="font-weight-bold">
+                      {{ normalizedRating(item.vote_average) }}
                     </div>
-                  </v-row>
-                </v-card-text>
-              </template>
-              <template v-else>
-                <h2 class="pa-2">{{ item.name }}</h2>
-              </template>
+                  </div>
+                </v-row>
+              </v-card-text>
             </v-img>
           </v-card>
         </v-col>
       </v-row>
       <v-row justify="center">
-        <v-col cols="8">
+        <v-col cols="12">
           <v-container>
             <v-pagination
               v-model="page"
@@ -63,7 +64,7 @@
       </v-row>
     </div>
     <template v-if="error.show">
-      <v-row cols="12" justify="center">
+      <v-row justify="center">
         <v-alert type="error">{{ error.message }}</v-alert>
       </v-row>
     </template>

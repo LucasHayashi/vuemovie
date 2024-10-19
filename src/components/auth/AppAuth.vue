@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row cols="12" justify="center">
+    <v-row justify="center">
       <v-col cols="12">
         <h2>Faça o login na sua conta do The Movie Database (TMDB)</h2>
       </v-col>
