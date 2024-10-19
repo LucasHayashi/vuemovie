@@ -1,7 +1,5 @@
 <template>
   <v-container>
-    <div v-if="loading" class="text-center"></div>
-
     <template v-if="loading">
       <v-row justify="center">
         <v-progress-circular

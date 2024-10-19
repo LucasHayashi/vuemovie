@@ -21,7 +21,7 @@
           <v-card height="100%" @click="navigate(item)">
             <v-img
               width="100%"
-              :src="createAsset(item.poster_path || item.profile_path, 'w342')"
+              :src="createAsset(item.poster_path, 'w342')"
               class="white--text align-start justify-end"
               :alt="item.title || item.name"
             >

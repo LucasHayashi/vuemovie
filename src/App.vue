@@ -187,13 +187,17 @@ export default {
   methods: {
     ...mapActions(["logout"]),
     goHome() {
-      window.localStorage.removeItem("page");
+      this.resetPages();
       if (this.$router.currentRoute.name !== "home") {
         this.$router.push({ name: "home" });
       }
     },
     darkMode() {
       window.localStorage.setItem("dark", this.$vuetify.theme.dark);
+    },
+    resetPages() {
+      window.localStorage.removeItem("page");
+      window.localStorage.removeItem("user_page");
     },
   },
   created() {
