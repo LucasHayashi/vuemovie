@@ -21,12 +21,17 @@
           <v-card height="100%" @click="navigate(item)">
             <v-img
               width="100%"
+              min-height="200"
               :src="createAsset(item.poster_path, 'w342')"
               class="white--text align-start justify-end"
               :alt="item.title || item.name"
             >
               <template v-slot:placeholder>
-                <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-row
+                  class="fill-height ma-0"
+                  align-content="center"
+                  justify="center"
+                >
                   <v-progress-circular
                     indeterminate
                     color="secondary"
