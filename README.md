@@ -81,7 +81,6 @@ npm run serve
 
 ## 🔗 Links Úteis
 
-- [Backend Vue Movie](https://github.com/LucasHayashi/vue-movie-backend)
 - [Documentação Vue.js 2](https://v2.vuejs.org/)
 - [Documentação Vuex 3](https://v3.vuex.vuejs.org/)
 - [Documentação Vue Router 3](https://v3.router.vuejs.org/)
