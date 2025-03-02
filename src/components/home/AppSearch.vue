@@ -85,7 +85,7 @@ export default {
       this.isLoading = true;
 
       try {
-        const res = await http.get(`/search?q=${search}`);
+        const res = await http.get(`/search/all?q=${search}`);
         this.entries = res.data.results;
       } catch (error) {
         this.entries = [];
