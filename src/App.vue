@@ -185,9 +185,10 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["logout"]),
+    ...mapActions(["logout", "triggerResetHome"]),
     goHome() {
       this.resetPages();
+      this.triggerResetHome();
       if (this.$router.currentRoute.name !== "home") {
         this.$router.push({ name: "home" });
       }

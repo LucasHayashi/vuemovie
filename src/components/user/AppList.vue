@@ -156,9 +156,9 @@ export default {
     async nextPage(page) {
       await this.getList(page);
       this.updateCurrentPage(page);
+      window.scrollPositions = {};
       window.scroll({
         top: 0,
-        behavior: "smooth",
       });
     },
   },

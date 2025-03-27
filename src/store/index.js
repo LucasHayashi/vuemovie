@@ -10,10 +10,11 @@ const store = new Vuex.Store({
     sessionId: localStorage.getItem("tmdb_session_id") || null,
     user: JSON.parse(localStorage.getItem("tmdb_user")) || null,
     isAuthenticated: !!localStorage.getItem("tmdb_session_id"),
+    resetHomeTrigger: false,
   },
   getters: {
-    isAuthenticated: state => state.isAuthenticated,
-    username: state => state.user.username,
+    isAuthenticated: (state) => state.isAuthenticated,
+    username: (state) => state.user.username,
   },
   mutations: {
     SET_SESSION(state, sessionId) {
@@ -32,10 +33,15 @@ const store = new Vuex.Store({
       localStorage.removeItem("tmdb_session_id");
       localStorage.removeItem("tmdb_user");
     },
+    TRIGGER_RESET_HOME(state) {
+      state.resetHomeTrigger = !state.resetHomeTrigger;
+    },
   },
   actions: {
     async login({ dispatch, commit }, requestToken) {
-      const { data: { session_id } } = await http.get(`auth/session?request_token=${requestToken}`);
+      const {
+        data: { session_id },
+      } = await http.get(`auth/session?request_token=${requestToken}`);
 
       await dispatch("getUser", session_id).then(() => {
         commit("SET_SESSION", session_id);
@@ -47,14 +53,17 @@ const store = new Vuex.Store({
       commit("SET_USER", data);
     },
     async logout({ commit }) {
-      const data = await http.delete('auth/session');
+      const data = await http.delete("auth/session");
       if (data) {
         commit("CLEAR_SESSION");
         if (router.currentRoute.name !== "home") {
           router.push({ name: "home" });
         }
       }
-    }
+    },
+    triggerResetHome({ commit }) {
+      commit("TRIGGER_RESET_HOME");
+    },
   },
 });
 

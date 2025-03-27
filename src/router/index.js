@@ -10,6 +10,10 @@ import AppAuthCallback from "../components/auth/AppAuthCallback.vue";
 
 Vue.use(VueRouter);
 
+if (!window.scrollPositions) {
+  window.scrollPositions = {};
+}
+
 const routes = [
   {
     path: "/",
@@ -58,9 +62,13 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior() {
+  scrollBehavior(to, from) {
+    if (from.name === "home") {
+      window.scrollPositions.home = { x: window.scrollX, y: window.scrollY };
+    }
+
     return { x: 0, y: 0 };
-  }
+  },
 });
 
 router.beforeEach((to, from, next) => {

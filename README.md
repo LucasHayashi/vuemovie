@@ -64,7 +64,7 @@ VUE_APP_API_ASSETS=  https://image.tmdb.org/t/p
 git clone https://github.com/LucasHayashi/vue-movie-frontend.git
 
 # Entre na pasta do projeto
-cd vue-movie-frontend
+cd vuemovie
 
 # Instale as dependências
 npm install

@@ -77,9 +77,10 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import http from "@/services/http";
 import util from "@/mixins/util";
-
 export default {
   props: ["timeWindow", "trendingType"],
   mixins: [util],
@@ -95,6 +96,9 @@ export default {
         message: null,
       },
     };
+  },
+  computed: {
+    ...mapState(["resetHomeTrigger"]),
   },
   methods: {
     updateCurrentPage(page) {
@@ -126,9 +130,9 @@ export default {
     async nextPage(page) {
       await this.getTrending(page);
       this.updateCurrentPage(page);
+      window.scrollPositions = {};
       window.scroll({
         top: 0,
-        behavior: "smooth",
       });
     },
   },
@@ -140,6 +144,24 @@ export default {
       immediate: true,
       deep: true,
     },
+    resetHomeTrigger() {
+      window.scrollPositions = {};
+      window.scroll({
+        top: 0,
+      });
+      this.page = 1;
+      this.getTrending(1);
+    },
+  },
+  updated() {
+    this.$nextTick(() => {
+      if (this.$route.name === "home" && window.scrollPositions?.home) {
+        window.scrollTo(
+          window.scrollPositions.home.x,
+          window.scrollPositions.home.y
+        );
+      }
+    });
   },
 };
 </script>
